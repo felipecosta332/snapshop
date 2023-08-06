@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { ProductCard } from "../../components/Elements/ProductCard";
+import { ProductCard } from "../../components";
 import { FilterBar } from "./components/FilterBar";
 
 export const ProductsList = () => {
   const [show, setShow] = useState(false);
   const [products, setProducts] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
     async function fetchProducts() {
       // json-server --watch data/db.json --port 8000
       const response = await fetch("http://localhost:8000/products");
@@ -14,7 +14,7 @@ export const ProductsList = () => {
       setProducts(data);
     }
     fetchProducts();
-  },[])
+  }, []);
 
   return (
     <main>
@@ -25,7 +25,7 @@ export const ProductsList = () => {
           </span>
           <span>
             <button
-            onClick={() => setShow(!show)}
+              onClick={() => setShow(!show)}
               id="dropdownMenuIconButton"
               data-dropdown-toggle="dropdownDots"
               className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-200 dark:text-white dark:bg-gray-600 dark:hover:bg-gray-700"
@@ -45,10 +45,9 @@ export const ProductsList = () => {
         </div>
 
         <div className="flex flex-wrap justify-center lg:flex-row">
-        {products.map((product)=>(
-          <ProductCard key={product.id} product={product} />
-        ))}
-          
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
       </section>
       {show && <FilterBar setShow={setShow} />}
