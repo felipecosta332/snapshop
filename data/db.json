@@ -289,6 +289,12 @@
       "password": "$2a$10$3Xder/xRvx.fZnuHviikCuVk6tjYRMSYfpHr.UG4o4ban8jhrt7d.",
       "name": "John Wayne",
       "id": 2
+    },
+    {
+      "email": "johnnywalker@email.com",
+      "password": "$2a$10$fW81xasg86qo1ckPFuQY2.xOJPgMcJpKnK3nsWKwPcuhMKVyN5JnK",
+      "name": "johnny walker",
+      "id": 3
     }
   ]
 }
