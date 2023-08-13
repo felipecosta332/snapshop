@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import { Search } from "../Sections/Search";
 import { DropdownLoggedOut } from "../Elements/DropdownLoggedOut";
 import { DropdownLoggedIn } from "../Elements/DropdownLoggedIn";
+import { useCart } from "../../context";
 
 export const Header = () => {
+  const { cartList } = useCart();
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("darkMode")) || false
   );
@@ -44,7 +46,7 @@ export const Header = () => {
             <Link to="/cart" className="text-gray-700 dark:text-white mr-5">
               <span className="text-2xl bi bi-cart-fill relative">
                 <span className="text-white text-sm absolute -top-1 left-2.5 bg-rose-500 px-1 rounded-full ">
-                  0
+                  {cartList.length}
                 </span>
               </span>
             </Link>
