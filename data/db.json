@@ -295,6 +295,12 @@
       "password": "$2a$10$fW81xasg86qo1ckPFuQY2.xOJPgMcJpKnK3nsWKwPcuhMKVyN5JnK",
       "name": "johnny walker",
       "id": 3
+    },
+    {
+      "email": "alex@example.com",
+      "password": "$2a$10$wRNvVDomKIXCsffZLF1X6u7cvnXybBdwL0HKKFHdYJinCJODu0u3y",
+      "name": "Alex T",
+      "id": 4
     }
   ]
 }
