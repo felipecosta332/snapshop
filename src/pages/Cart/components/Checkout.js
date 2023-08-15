@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../../context";
 
 export const Checkout = ({ setCheckout }) => {
-  const { total } = useCart();
+  const { total, cartList, clearCart } = useCart();
   const [user, setUser] = useState({});
+  const navigate = useNavigate();
+  const token = JSON.parse(sessionStorage.getItem("token"));
+  const cbid = JSON.parse(sessionStorage.getItem("cbid"));
 
   useEffect(() => {
-    const token = JSON.parse(sessionStorage.getItem("token"));
-    const cbid = JSON.parse(sessionStorage.getItem("cbid"));
-
     async function getUser() {
       const response = await fetch(`http://localhost:8000/600/users/${cbid}`, {
         method: "GET",
@@ -23,6 +24,31 @@ export const Checkout = ({ setCheckout }) => {
 
     getUser();
   }, []);
+
+  async function handleOrderSubmit(event) {
+    event.preventDefault();
+    const order = {
+      cartList: cartList,
+      amount_paid: total,
+      quantity: cartList.length,
+      user: {
+        name: user.name,
+        email: user.email,
+        id: user.id,
+      },
+    };
+    const response = await fetch("http://localhost:8000/660/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(order),
+    });
+    const data = await response.json();
+    clearCart();
+    navigate("/");
+  }
 
   return (
     <section>
@@ -61,7 +87,7 @@ export const Checkout = ({ setCheckout }) => {
               <h3 className="mb-4 text-xl font-medium text-gray-900 dark:text-white">
                 <i className="bi bi-credit-card mr-2"></i>CARD PAYMENT
               </h3>
-              <form className="space-y-6">
+              <form onSubmit={handleOrderSubmit} className="space-y-6">
                 <div>
                   <label
                     htmlFor="name"
