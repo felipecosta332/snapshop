@@ -11,7 +11,7 @@ export const DropdownLoggedIn = ({ setDropdown }) => {
       const data = await getUser();
       data.email ? setUser(data) : handleLogout();
     }
-    fetchData();
+    fetchData();  
   }, []);
 
   function handleLogout() {

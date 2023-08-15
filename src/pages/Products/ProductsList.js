@@ -4,6 +4,7 @@ import { FilterBar } from "./components/FilterBar";
 import { useLocation } from "react-router-dom";
 import { useTitle } from "../../hooks/useTitle";
 import { useFilter } from "../../context";
+import { getProductList } from "../../services";
 
 export const ProductsList = () => {
   const { products, initialProductList } = useFilter();
@@ -14,13 +15,7 @@ export const ProductsList = () => {
 
   useEffect(() => {
     async function fetchProducts() {
-      // json-server --watch data/db.json --port 8000
-      const response = await fetch(
-        `http://localhost:8000/products?name_like=${
-          searchTerm ? searchTerm : ""
-        }`
-      );
-      const data = await response.json();
+      const data = await getProductList(searchTerm);
       initialProductList(data);
     }
     fetchProducts();
