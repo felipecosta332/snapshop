@@ -11,7 +11,7 @@ export const ProductsList = () => {
   const [show, setShow] = useState(false);
   const search = useLocation().search;
   const searchTerm = new URLSearchParams(search).get("q");
-  useTitle("Explore eBooks Collection");
+  useTitle(searchTerm ? `${searchTerm} Search Results` : "Explore eBooks Collection");
 
   useEffect(() => {
     async function fetchProducts() {
