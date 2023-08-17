@@ -19,6 +19,9 @@ export async function getUser() {
     `http://localhost:8000/600/users/${browserData.cbid}`,
     requestOptions
   );
+  if (!response.ok) {
+    throw { message: response.statusText, status: response.status };
+  }
   const data = await response.json();
   return data;
 }
@@ -36,6 +39,9 @@ export async function getUserOrders() {
     `http://localhost:8000/660/orders?user.id=${browserData.cbid}`,
     requestOptions
   );
+  if (!response.ok) {
+    throw { message: response.statusText, status: response.status };
+  }
   const data = await response.json();
   return data;
 }
@@ -64,6 +70,9 @@ export async function createOrder(cartList, total, user) {
     "http://localhost:8000/660/orders",
     requestOptions
   );
+  if (!response.ok) {
+    throw { message: response.statusText, status: response.status };
+  }
   const data = await response.json();
   return data;
 }
