@@ -37,7 +37,9 @@ export const Header = () => {
           <div className="flex items-center relative">
             <span
               onClick={() => setDarkMode(!darkMode)}
-              className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-gear-wide-connected"
+              className={`cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-${
+                darkMode ? "brightness-high-fill" : "moon-fill"
+              }`}
             ></span>
             <span
               onClick={() => setSearchSection(!searchSection)}
