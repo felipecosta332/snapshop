@@ -29,7 +29,7 @@ export const ProductsList = () => {
       }
     }
     fetchProducts();
-  }, [searchTerm]); // esling-disable-line
+  }, [searchTerm]); // eslint-disable-line
 
   return (
     <main>

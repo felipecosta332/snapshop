@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export const ProductCard = ({ product }) => {
   const { cartList, addToCart, removeFromCart } = useCart();
   const [inCart, setInCart] = useState(false);
-  const { id, name, overview, rating, price, image_local, best_seller } =
+  const { id, name, overview, rating, price, poster, best_seller } =
     product;
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const ProductCard = ({ product }) => {
 
         <img
           className="rounded-t-lg w-full h-64"
-          src={image_local}
+          src={poster}
           alt={name}
         />
       </Link>
