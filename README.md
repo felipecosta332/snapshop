@@ -2,7 +2,16 @@
 
 An eCommerce web app built with React.js
 
-## JSON commands:
+## Web app link
+
+- Web app deployed at: [SnapShop](https://snapshop-ul.netlify.app/)
+
+## Hosting
+
+- Frontend hosted at [Netlify](https://www.netlify.com/)
+- Backend web service deployed at [Render](https://render.com/): https://snapshop-mock-server.onrender.com/
+
+## Localhost JSON commands:
 
 <!-- JSON Server -->
 - `json-server --watch data/db.json --port 8000`
