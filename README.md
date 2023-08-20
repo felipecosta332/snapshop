@@ -9,7 +9,7 @@ An eCommerce web app built with React.js
 ## Hosting
 
 - Frontend hosted at [Netlify](https://www.netlify.com/)
-- Backend web service deployed at [Render](https://render.com/): https://snapshop-mock-server.onrender.com/
+- Backend web service deployed at [Render](https://render.com/): https://snapshop-mock-server.onrender.com
 
 ## Localhost JSON commands (json-server):
 
