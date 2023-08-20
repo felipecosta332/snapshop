@@ -1,6 +1,6 @@
 # SnapShop
 
-An eCommerce web app built with React.js
+An eCommerce web app built with React.js and Tailwind.css
 
 ## Web app link
 
